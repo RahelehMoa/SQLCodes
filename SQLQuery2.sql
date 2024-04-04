@@ -74,6 +74,62 @@ VALUES
 (13,'Konbu', 6,	8 ,	'2 kg box', 6 ),
 (14,'Tofu', 6 ,	7 ,	'40 - 100 g pkgs.', 23.25 ),
 (15,'Genen Shouyu', 6 ,2,'24 - 250 ml bottles', 15.5 );
- 
- -- Agreggaton Functions are below:
+
+-- ORDER BY keyword used to sort:
+
+SELECT * FROM Product_Table2 
+ORDER BY Price;
+
+SELECT * FROM Product_Table2 
+ORDER BY Price DESC;
+
+SELECT * FROM Product_Table2
+ORDER BY ProductName; 
+
+SELECT * FROM Product_Table2
+ORDER BY ProductName DESC;
+
+SELECT * FROM Customer_Table2
+ORDER BY Country, CustName;
+
+SELECT * FROM Customer_Table2
+ORDER BY Country ASC, CustName DESC;
+
+-- Agreggaton Functions are below:
+
+-- MIN() and MAX() Functions:
+
+SELECT MIN(Price)
+FROM Product_Table2;
+
+SELECT MAX(Price)
+FROM Product_Table2;
+
+SELECT MIN(Price) AS SmallestPrice
+FROM Product_Table2;
+
+SELECT MIN(Price) AS SmallestPrice, CategoryID
+FROM Product_Table2
+GROUP BY CategoryID;
+
+-- AVG() function returns the average value of a numeric column:
+
+SELECT AVG(Price) 
+FROM Product_Table2;
+
+SELECT AVG(Price)
+FROM Product_Table2
+WHERE CategoryID = 1;
+
+SELECT AVG(Price) AS 'average price'
+FROM Product_Table2;
+
+SELECT * FROM Product_Table2
+WHERE Price > (SELECT AVG(price) FROM Product_Table2);
+
+SELECT AVG(Price) AS AveragePrice, CategoryID
+FROM Product_Table2
+GROUP BY CategoryID; 
+
+
 
