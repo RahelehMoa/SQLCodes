@@ -77,3 +77,9 @@ PRINT @Result
 --/////////////////////////SEE RESULT IN TABLE USERS////////////////////
 
 SELECT * fROM USERS
+
+--////////////////////////SEE ALL POROCEDURE//////////////////////////
+
+SELECT * FROM sys.procedures
+
+--Drop PROCEDURE "Name Procedure"
