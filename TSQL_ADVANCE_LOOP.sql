@@ -38,3 +38,22 @@ DECLARE @productName NVARCHAR (100);
 Select @total=COUNT(*) From SalesLT.Product
 
 -- از حلقه استفاده میکنیم که روی محصولات پیمایش انجام دهیم
+WHILE @i < @total
+
+BEGIN
+ select @productName = Name
+ from SalesLT.Product
+ order by ProductID
+ OFFSET @i ROWS FETCH NEXT 1 ROWS ONLY
+
+ PRINT N' ProductName : ' + @productName
+
+ IF @productName = N'AWC Logo Cap'
+ BEGIN
+ PRINT 'Find it';
+ BREAK ;
+ END
+
+ SET @i =@i+1
+
+END;
