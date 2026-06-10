@@ -6,6 +6,7 @@
 --COUNT()
 -- ALWAYS WE USED AS KEWORD AND ALIAS
 -- ALWAYS WE USED NUMERICAL COLUMN in ()
+
 -- * delete and replace with Min(), Max()
 
 select * from SalesLT.Product
@@ -19,7 +20,7 @@ from SalesLT.Product;
 
 -- COUNT ignore "null" values 
 -- In count we can calculate string and numerical column 
-select COUNT(*) AS ID from SalesLT.Product;
+select COUNT(*) AS CountID from SalesLT.Product;
 select COUNT(ProductId) AS CountID from SalesLT.Product;
 select COUNT(Weight) AS WeightID from SalesLT.Product;
 select COUNT(Name) AS CountName from SalesLT.Product;
@@ -30,6 +31,9 @@ select SUM (StandardCost * 20) AS TotalPrice from SalesLT.Product;
 --Effect with WHERE that WHERE comes after FROM: 
 select COUNT(ProductId) AS CountID from SalesLT.Product
 where StandardCost < 360;
+
+SELECT Count(*) from SalesLT.Product 
+where ProductId IS NOT NULL;
 
 select * from SalesLT.Product 
 Where StandardCost > (select AVG(StandardCost) from SalesLT.Product);
