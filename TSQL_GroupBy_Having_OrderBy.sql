@@ -35,12 +35,18 @@ Group By CountryRegion;
 
 -- It is The Same put * or ID Column in Count().
 
-
 --//////////////////////////////HAVING/////////////////////////////////
+--Having put on Group By and After group By is Used. 
+--when we dont used group by we can not use Having and we use where before group by.
 select Color, SUM(StandardCost) as TotalPrice 
 from SalesLT.Product
 GROUP BY Color
 HAVING SUM(StandardCost) > 100;  --condition Having
+
+select Color, SUM(StandardCost) as TotalPrice 
+from SalesLT.Product
+GROUP BY Color
+HAVING SUM(Weight) > 500;  --condition Having
 
 -- Havin is Used with Aggregate Functions.
 select Color, SUM(StandardCost) as TotalPrice, SUM(Weight) as TotalWight 
@@ -57,13 +63,21 @@ Having Count(AddressID) > 50;
 --//////////////////////////ORDER BY|SORT///////////////////////////////
 select * from SalesLT.Product
 ORDER BY StandardCost ASC;
+
 select * from SalesLT.Product
-ORDER BY Weight;
+ORDER BY Weight;     --ASC = Defult = Increasing
+
+select * from SalesLT.Product
+ORDER BY Name DESC;   --DESC = Decreasing = reverce ALphbetically
 
 select * from SalesLT.Product
 ORDER BY StandardCost DESC;
+
 select * from SalesLT.Product
 ORDER BY StandardCost DESC,Weight DESC;
+
+select * from SalesLT.Address
+order by CountryRegion ASC , AddressID DESC;
 
 select Color, SUM(StandardCost) as TotalPrice
 from SalesLT.Product
@@ -71,3 +85,5 @@ GROUP BY Color
 ORDER BY TotalPrice DESC; --SUM(StandardCost) = TotalPrice 
 --در اوردربای همیشه فقط نام یک ستون قرار میگیرد یا 
 -- فانکشن و یا نام ستون علیاز قرار میگیرد.
+-- اگر گروپ بای داریم حتما در اردربای نام  ستون فانکشن قرار  میگیرد و
+--  نام ستون معمولی خطا می دهد.
