@@ -35,4 +35,41 @@ SELECT (ListPrice) FROM SalesLT.Product;
 SELECT ROUND (ListPrice,0) FROM SalesLT.Product;
 -- Becarful put one number in Round like 0 for identify Round.
 
+--/////////////////////////////MATH////////////////////////////////
+
+SELECT PI();
+
+SELECT EXP(1) AS Result;
+-- قدر مطلق
+SELECT ABS(-12) AS Result;
+-- علامت عدد - 
+SELECT SIGN(-12) AS Result;
+-- علامت عدد +
+SELECT SIGN(12) AS Result;
+-- رندوم تولید عدد 
+SELECT RAND() AS Result;  --Generate Numbers
+
+SELECT RAND()*100 AS Result; 
+-- توان
+SELECT POWER(2,8) AS Result;
+--  جذر
+SELECT SQRT(100) AS Result;
+
+--///////////////////////////VARIABLE//////////////////////////////
+DECLARE @MyName NVARCHAR(50) = 'Sara C';
+SELECT @MyName;
+--Select both statement togther.
+
+DECLARE @MyName NVARCHAR(50) 
+SET @MyName = 'Luca B';
+SELECT @MyName;
+
+
+DECLARE @MyName NVARCHAR(50), @Age INT
+SET @MyName = 'Luca B'
+SET @Age = 36;
+SELECT @MyName,@Age;
+
+
+
 
