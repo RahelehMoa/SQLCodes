@@ -1,11 +1,13 @@
 --////////////////////////////////////SCHEMA////////////////////////////////////
-
+--First we define Name of Schema
 Create SCHEMA TestProduct
 
+--Second we define Name of Schema . Name of Table
 Create Table TestProduct.userschema (
 ID int Primary Key,
 UserName NVARCHAR(20))
 
+-- Refresh the right side and we can see Table under other tables
 select * From TestProduct.userschema 
 
 -- chenge schema from TestProduct to dbo:
