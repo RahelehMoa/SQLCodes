@@ -10,6 +10,9 @@ WHERE StandardCost = (Select MAX(StandardCost) From SalesLT.Product);
 Select * From SalesLT.Product
 WHERE StandardCost > = (Select MIN(StandardCost) From SalesLT.Product);
 
+-- in Subquery we have one value result like Select MAX(StandardCost) From SalesLT.Product
+-- equal to 2171.2942 that main query compare with 2171.2942 value and
+-- then we have results.
 --//////////////////////////////////////////////////////////////////////////////////
 Select * From SalesLT.Product
 WHERE ProductCategoryID IN
@@ -26,7 +29,6 @@ where StandardCost < all (select AVG(StandardCost) from SalesLT.Product);
 -- در ال یک مقدار خروجی در شرط داریم در صورتی که در این یک لیست مقدار خروجی داریم.
 
 --///////////////////////////////Subquery tudartu//////////////////////////////////////////////
-
 Select * From SalesLT.Product
 Where ProductCategoryID = 
 ( select top 1 ProductCategoryID From SalesLT.Product
