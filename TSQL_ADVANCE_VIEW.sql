@@ -20,7 +20,35 @@ Drop View Productview;
 
 Select * From Productview;  --ERROR AND WE DON'T HAVE VIEW.
 
---/////////////////////View Join/////////////////////////////
+
+Create View USA_Customer AS
+Select AddressLine1,City,StateProvince,CountryRegion
+From SalesLT.Address
+Where CountryRegion = 'United States';
+
+Select * From USA_Customer;
+
+Create View [Product Average Price] AS
+Select Name,StandardCost 
+From SalesLT.Product
+where (StandardCost > (select AVG (StandardCost)
+From SalesLT.Product));
+
+Select * From [Product Average Price];
+
+Alter View [Product Average Price] AS
+Select Name,StandardCost,Color,ListPrice 
+From SalesLT.Product
+where (StandardCost > (select AVG (StandardCost)
+From SalesLT.Product));
+
+Drop View Canada_Customer;
+
+Select * From Canada_Customer; 
+
+-- ERROR THERE IS NOT AVAILABLE AND DROP
+
+--/////////////////////////View Join//////////////////////////////////
 
 Create View  Test_View AS
 Select id,Name,Email,JobName
